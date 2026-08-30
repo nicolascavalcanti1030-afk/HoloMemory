@@ -19,8 +19,8 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
-  width: 95vw;          /* Ocupa 95% da largura da tela */
-  max-width: 1400px;    /* Permite expandir bem em monitores grandes */
+  width: 95vw;          
+  max-width: 1400px;    
   margin: 0 auto;
 }
 
@@ -85,11 +85,11 @@ h1 {
 #board.level-3 {
   grid-template-columns: repeat(10, minmax(75px, 100px));
 }
-/* Proporcao exata de Carta de Taro (9:16) para nao achatar nem cortar */
+/* Proporcao  Carta (9:16) para nao achatar nem cortar */
 .card {
   aspect-ratio: 9 / 16;
   width: 100%;
-  max-width: 130px; /* Ajuste carta maior ou menor na tela */
+  max-width: 130px; 
   position: relative;
   transform-style: preserve-3d;
   transition: transform 0.5s;
@@ -157,7 +157,7 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
-  z-index: 1000; /* Garante que fique por cima de outros elementos */
+  z-index: 1000; 
   background: rgba(15, 15, 27, 0.85);
   padding: 8px;
   border-radius: 10px;
