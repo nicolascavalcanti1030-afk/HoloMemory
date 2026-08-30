@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Holomemory</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <div id="game-container">
+    <h1>Holo-Memory</h1>
+
+    <!--Controles de Nivel e Placar -->
+    <div id="menu">
+      <div class="level-buttons">
+        <button onclick="iniciarJogo(1)">Nivel 1 (10 Pares)</button>
+        <button onclick="iniciarJogo(2)">Nivel 2 (18 Pares)</button>
+        <button onclick="iniciarJogo(3)">Nivel 3 (35 Pares)</button>
+      </div>
+      <div class="stats">
+        <p>Tentativas: <span id="moves">0</span></p>
+        <p>Acertos: <span id="matches">0</span> / <span id="total-matches">10</span></p>
+      </div>
+    </div>
+
+    <!-- Tabuleiro das Cartas -->
+    <div id="board" class="level-1"></div>
+  </div>
+  
+  <div id="qrcode-container">
+    <span class="qrcode-label">art</span>
+    <img src="imagens/qrcode.png" alt="QR Code Art" id="qrcode-img">
+  </div>
+
+   <div id="qrholo-container">
+    <span class="qrholo-label">Hololive</span>
+    <img src="imagens/qrholo.png" alt="QR Code Hololive" id="qrholo-img">
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

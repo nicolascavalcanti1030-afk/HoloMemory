@@ -1,0 +1,221 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: #0f0f1b;
+  color: #fff;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  padding: 20px;
+}
+
+#game-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 95vw;          /* Ocupa 95% da largura da tela */
+  max-width: 1400px;    /* Permite expandir bem em monitores grandes */
+  margin: 0 auto;
+}
+
+h1 {
+  margin-bottom: 15px;
+  color: #00f0ff;
+  text-shadow: 0 0 10px #00f0ff;
+}
+
+#menu {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 15px;
+  margin-bottom: 20px;
+}
+
+.level-buttons button {
+  background: #1f1f3a;
+  color: #fff;
+  border: 2px solid #00f0ff;
+  padding: 10px 15px;
+  font-size: 14px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.level-buttons button:hover {
+  background: #00f0ff;
+  color: #000;
+  box-shadow: 0 0 10px #00f0ff;
+}
+
+.stats {
+  display: flex;
+  gap: 20px;
+  font-size: 18px;
+  font-weight: bold;
+}
+
+/* Tabuleiro Responsivo por Nivel */
+#board {
+  display: grid;
+  gap: 15px;             /* Espacamento maior entre as cartas */
+  justify-content: center;
+  align-content: center;
+  width: 100%;
+  margin-top: 20px;
+  perspective: 1000px;
+}
+
+/* Colunas e tamanho das cartas ajustados por Nivel */
+#board.level-1 {
+  grid-template-columns: repeat(5, minmax(110px, 140px));
+}
+
+#board.level-2 {
+  grid-template-columns: repeat(6, minmax(90px, 120px));
+}
+
+#board.level-3 {
+  grid-template-columns: repeat(10, minmax(75px, 100px));
+}
+/* Proporcao exata de Carta de Taro (9:16) para nao achatar nem cortar */
+.card {
+  aspect-ratio: 9 / 16;
+  width: 100%;
+  max-width: 130px; /* Ajuste carta maior ou menor na tela */
+  position: relative;
+  transform-style: preserve-3d;
+  transition: transform 0.5s;
+  cursor: pointer;
+}
+
+/* Libera o clique e forca renderizacao nitida de imagem */
+.card img {
+  pointer-events: none;
+  image-rendering: -webkit-optimize-contrast;
+  image-rendering: crisp-edges;
+}
+
+/* Face da carta */
+.card-face {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  border-radius: 8px;
+  
+  /* Borda branca fina  */
+  border: 1px solid rgba(255, 255, 255, 0.8);
+  box-shadow: 0 0 5px rgba(255, 255, 255, 0.2);
+
+  object-fit: cover;
+  object-position: center;
+  background-color: #000;
+}
+
+.card-back {
+  z-index: 2;
+}
+
+.card-front {
+  transform: rotateY(180deg);
+  z-index: 1;
+}
+
+.card.flip {
+  transform: rotateY(180deg);
+}
+body {
+  background: 
+    linear-gradient(rgba(15, 15, 27, 0.75), rgba(15, 15, 27, 0.75)), 
+    url('imagens/fundo-tela.jpg') no-repeat center center fixed;
+  background-size: cover;
+
+  color: #fff;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  padding: 20px;
+}
+
+#qrcode-container {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  z-index: 1000; /* Garante que fique por cima de outros elementos */
+  background: rgba(15, 15, 27, 0.85);
+  padding: 8px;
+  border-radius: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(5px);
+}
+
+/*  "art"  */
+.qrcode-label {
+  color: #fff;
+  font-size: 14px;
+  font-weight: bold;
+  text-transform: lowercase;
+  letter-spacing: 2px;
+  margin-bottom: 5px;
+  text-shadow: 0 0 5px rgba(255, 255, 255, 0.8);
+}
+
+/* QR Code */
+#qrcode-img {
+  width: 90px;
+  height: 90px;
+  border-radius: 5px;
+  object-fit: contain;
+}
+
+#qrholo-container {
+  position: fixed;
+  bottom: 20px;
+  left: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  z-index: 1000; /* Garante que fique por cima de outros elementos */
+  background: rgba(15, 15, 27, 0.85);
+  padding: 8px;
+  border-radius: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(5px);
+}
+
+/*  "Hololive"  */
+.qrholo-label {
+  color: #fff;
+  font-size: 14px;
+  font-weight: bold;
+  text-transform: lowercase;
+  letter-spacing: 2px;
+  margin-bottom: 5px;
+  text-shadow: 0 0 5px rgba(255, 255, 255, 0.8);
+}
+
+/* QR Code */
+#qrholo-img {
+  width: 90px;
+  height: 90px;
+  border-radius: 5px;
+  object-fit: contain;
+}
