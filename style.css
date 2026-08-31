@@ -137,9 +137,11 @@ h1 {
 }
 body {
   background: 
-    linear-gradient(rgba(15, 15, 27, 0.75), rgba(15, 15, 27, 0.75)), 
+    linear-gradient(rgba(15, 15, 27, 0.75), rgba(15, 15, 27, 0.1)), 
     url('imagens/fundo-tela.jpg') no-repeat center center fixed;
   background-size: cover;
+  background-position:center;
+  
 
   color: #fff;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
